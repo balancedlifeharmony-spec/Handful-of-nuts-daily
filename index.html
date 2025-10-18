@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Nuts: Health Benefits & Scientific Evidence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            transition: direction 0.3s ease;
+        }
+
+        body.rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        body.rtl header, body.rtl .hero-section, body.rtl footer {
+            text-align: center;
+        }
+
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: 2px solid #8B4513;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: #8B4513;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle:hover {
+            background: #8B4513;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        body.rtl .language-toggle {
+            right: auto;
+            left: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.8) 0%, rgba(210, 105, 30, 0.8) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle cx="100" cy="100" r="80" fill="%23f0e5d8" opacity="0.1"/><circle cx="1100" cy="500" r="120" fill="%23f0e5d8" opacity="0.1"/></svg>');
+            background-size: cover;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .benefit-card h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .benefit-card p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .ref-link {
+            color: #D2691E;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #D2691E;
+            transition: all 0.2s ease;
+        }
+
+        .ref-link:hover {
+            color: #8B4513;
+            background-color: #fff8f0;
+        }
+
+        .references-section {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .references-section h2 {
+            color: #8B4513;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .reference-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .reference-item:last-child {
+            border-bottom: none;
+        }
+
+        .reference-item p {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .reference-item .citation {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 0.5rem;
+        }
+
+        .reference-item .links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        footer a {
+            color: #D2691E;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #f4a460;
+        }
+
+        .highlight {
+            background-color: #fff8f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .header-image {
+                max-width: 80% !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-toggle" id="langToggle">English / العربية</div>
+    
+    <header>
+        <h1 data-en="🥜 Daily Nuts: Nature's Superfood" data-ar="🥜 الفوائد العلمية لحفنة يومية من المكسرات">🥜 Daily Nuts: Nature's Superfood</h1>
+        <p>Scientific Benefits of a Daily Handful</p>
+    </header>
+
+    <div style="text-align: center; padding: 2rem 1rem; background: white;">
+        <img src="https://i.imgur.com/csXE62m.png" alt="Daily Nuts Benefits" class="header-image" style="max-width: 50%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    </div>
+
+    <section class="hero-section">
+        <div class="container">
+            <h2 data-en="Why A Handful of Nuts Daily is a Game-Changer" data-ar="لماذا تناول حفنة من المكسرات يومياً ثورة صحية حقيقية">Why A Handful of Nuts Daily is a Game-Changer</h2>
+            <p data-en="Packed with essential nutrients, healthy fats, and powerful antioxidants, a daily handful of nuts is one of the simplest ways to boost your health. Discover what science reveals about this nutritional powerhouse." data-ar="المكسرات غنية بالعناصر الغذائية الأساسية والدهون الصحية والمضادات الأكسدة القوية - وهي واحدة من أبسط الطرق لتعزيز صحتك. اكتشف ما تكشفه العلوم عن هذا المصدر الغذائي الخارق.">Packed with essential nutrients, healthy fats, and powerful antioxidants, a daily handful of nuts is one of the simplest ways to boost your health. Discover what science reveals about this nutritional powerhouse.</p>
+            <div class="stat-box">
+                <div class="number">23-28g</div>
+                <p data-en="Recommended daily serving: One handful or about 1 ounce" data-ar="الحصة اليومية الموصى بها: حفنة واحدة أو حوالي 28 غراماً">Recommended daily serving: One handful or about 1 ounce</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 style="color: #8B4513; margin: 2rem 0; font-size: 2rem; text-align: center;" data-en="Key Health Benefits" data-ar="الفوائد الصحية الرئيسية">Key Health Benefits</h2>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3 data-en="❤️ Heart Health" data-ar="❤️ صحة القلب">❤️ Heart Health</h3>
+                <p data-en="Nuts are rich in unsaturated fats and plant-based omega-3 fatty acids, which help reduce inflammation and support cardiovascular function." data-ar="المكسرات غنية بالدهون غير المشبعة وأحماض أوميغا 3 النباتية، التي تساعد على تقليل الالتهابات وتدعم صحة القلب والأوعية الدموية.">Nuts are rich in unsaturated fats and plant-based omega-3 fatty acids, which help reduce inflammation and support cardiovascular function.</p>
+                <p><span class="ref-link" onclick="scrollToRef('ref1')" data-en="View Study ↓" data-ar="عرض الدراسة ↓">View Study ↓</span></p>
+            </div>
+
+            <div class="benefit-card">
+                <h3 data-en="🧠 Brain Function" data-ar="🧠 وظائف الدماغ">🧠 Brain Function</h3>
+                <p data-en="High in vitamin E, magnesium, and folate—all crucial for cognitive performance, memory, and protecting against age-related mental decline." data-ar="غنية بفيتامين E والمغنيسيوم وحمض الفوليك - وكلها ضرورية لتحسين الأداء العقلي والذاكرة وحماية الدماغ من التدهور المرتبط بالعمر.">High in vitamin E, magnesium, and folate—all crucial for cognitive performance, memory, and protecting against age-related mental decline.</p>
+                <p><span class="ref-link" onclick="scrollToRef('ref2')" data-en="View Study ↓" data-ar="عرض الدراسة ↓">View Study ↓</span></p>
+            </div>
+
+            <div class="benefit-card">
+                <h3 data-en="⚖️ Weight Management" data-ar="⚖️ إدارة الوزن">⚖️ Weight Management</h3>
+                <p data-en="Despite being calorie-dense, nuts increase satiety and can support healthy weight maintenance when consumed in appropriate portions." data-ar="على الرغم من احتوائها على سعرات حرارية عالية، تزيد المكسرات من الشعور بالشبع وتدعم الحفاظ على وزن صحي عند تناولها بكميات مناسبة.">Despite being calorie-dense, nuts increase satiety and can support healthy weight maintenance when consumed in appropriate portions.</p>
+                <p><span class="ref-link" onclick="scrollToRef('ref3')" data-en="View Study ↓" data-ar="عرض الدراسة ↓">View Study ↓</span></p>
+            </div>
+
+            <div class="benefit-card">
+                <h3 data-en="🛡️ Antioxidant Power" data-ar="🛡️ قوة المضادات الأكسدة">🛡️ Antioxidant Power</h3>
+                <p data-en="Nuts contain polyphenols and other antioxidants that combat free radicals and reduce oxidative stress in the body." data-ar="تحتوي المكسرات على البوليفينول ومضادات أكسدة أخرى تحارب الجذور الحرة وتقلل من الإجهاد التأكسدي في الجسم.">Nuts contain polyphenols and other antioxidants that combat free radicals and reduce oxidative stress in the body.</p>
+                <p><span class="ref-link" onclick="scrollToRef('ref4')" data-en="View Study ↓" data-ar="عرض الدراسة ↓">View Study ↓</span></p>
+            </div>
+
+            <div class="benefit-card">
+                <h3 data-en="🩸 Blood Sugar Control" data-ar="🩸 تنظيم السكر في الدم">🩸 Blood Sugar Control</h3>
+                <p data-en="The fiber, protein, and healthy fats in nuts help regulate blood glucose levels and improve insulin sensitivity." data-ar="الألياف والبروتين والدهون الصحية في المكسرات تساعد في تنظيم مستويات السكر في الدم وتحسن حساسية الإنسولين.">The fiber, protein, and healthy fats in nuts help regulate blood glucose levels and improve insulin sensitivity.</p>
+                <p><span class="ref-link" onclick="scrollToRef('ref5')" data-en="View Study ↓" data-ar="عرض الدراسة ↓">View Study ↓</span></p>
+            </div>
+
+            <div class="benefit-card">
+                <h3 data-en="💪 Nutrient Density" data-ar="💪 كثافة المغذيات">💪 Nutrient Density</h3>
+                <p data-en="Packed with magnesium, potassium, zinc, iron, and B vitamins essential for energy, immunity, and overall wellness." data-ar="محملة بالمغنيسيوم والبوتاسيوم والزنك والحديد وفيتامينات B الضرورية للطاقة والمناعة والصحة العامة.">Packed with magnesium, potassium, zinc, iron, and B vitamins essential for energy, immunity, and overall wellness.</p>
+                <p><span class="ref-link" onclick="scrollToRef('ref6')" data-en="View Study ↓" data-ar="عرض الدراسة ↓">View Study ↓</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="references-section" id="references">
+            <h2 data-en="📚 Scientific References" data-ar="📚 المراجع العلمية">📚 Scientific References</h2>
+
+            <div class="reference-item" id="ref1">
+                <p><strong data-en="Reference 1: Cardiovascular Benefits" data-ar="المرجع 1: الفوائد القلبية الوعائية">Reference 1: Cardiovascular Benefits</strong></p>
+                <p class="citation">Hu, F. B., Stampfer, M. J., Manson, J. E., et al. (2013). "Nut Consumption and Risk of Cardiovascular Disease and Mortality." New England Journal of Medicine, 369(21), 2001-2011.</p>
+                <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;" data-en="Harvard study of 120,000+ people showing daily nut-eaters were 20% less likely to die from cardiovascular disease." data-ar="دراسة هارفارد على 120,000+ شخص تُظهر أن متناولي المكسرات يومياً كانوا أقل عرضة بنسبة 20% للوفيات من أمراض القلب.">Harvard study of 120,000+ people showing daily nut-eaters were 20% less likely to die from cardiovascular disease.</p>
+                <div class="links">
+                    <a href="https://www.nejm.org/" class="ref-link" target="_blank" data-en="New England Journal of Medicine" data-ar="مجلة نيو إنجلاند الطبية">New England Journal of Medicine</a>
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3257681/" class="ref-link" target="_blank" data-en="PubMed Central" data-ar="مركز PubMed المركزي">PubMed Central</a>
+                </div>
+            </div>
+
+            <div class="reference-item" id="ref2">
+                <p><strong data-en="Reference 2: Brain Health & Cognitive Protection" data-ar="المرجع 2: صحة الدماغ والحماية الإدراكية">Reference 2: Brain Health & Cognitive Protection</strong></p>
+                <p class="citation">Barbour, J. A., Howe, P. R., Buckley, J. D., et al. (2014). "Nut Consumption for Vascular Health and Cognitive Function." Nutrition Research Reviews, 27(1), 131-158.</p>
+                <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;" data-en="Comprehensive review showing nuts enhance memory, cognitive performance, and protect against age-related mental decline through their nutrient profile." data-ar="مراجعة شاملة توضح أن المكسرات تحسّن الذاكرة والأداء الإدراكي وتحمي من التدهور العقلي المرتبط بالعمر.">Comprehensive review showing nuts enhance memory, cognitive performance, and protect against age-related mental decline.</p>
+                <div class="links">
+                    <a href="https://www.cambridge.org/core/journals/nutrition-research-reviews" class="ref-link" target="_blank" data-en="Cambridge University Press" data-ar="مطبعة جامعة كامبريدج">Cambridge University Press</a>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/24472369/" class="ref-link" target="_blank" data-en="PubMed Database" data-ar="قاعدة بيانات PubMed">PubMed Database</a>
+                </div>
+            </div>
+
+            <div class="reference-item" id="ref3">
+                <p><strong data-en="Reference 3: Weight Management & Satiety" data-ar="المرجع 3: إدارة الوزن والشبع">Reference 3: Weight Management & Satiety</strong></p>
+                <p class="citation">Nikodijevic, C. J., Probst, Y. C., Tan, S. Y., et al. (2021). "The Effects of Tree Nut and Peanut Consumption on Energy Compensation and Energy Expenditure." Advances in Nutrition, 14(1), 77-98.</p>
+                <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;" data-en="Meta-analysis proving that despite high calories, nuts increase fullness and don't lead to weight gain; in fact, linked with weight loss." data-ar="تحليل شامل يثبت أنه بالرغم من السعرات الحرارية العالية، تزيد المكسرات من الشعور بالشبع ولا تؤدي لزيادة الوزن بل ترتبط بفقدان الوزن.">Meta-analysis proving nuts increase fullness without weight gain; associated with weight loss.</p>
+                <div class="links">
+                    <a href="https://academic.oup.com/advances/" class="ref-link" target="_blank" data-en="Advances in Nutrition" data-ar="التقدم في التغذية">Advances in Nutrition</a>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/33571311/" class="ref-link" target="_blank" data-en="PubMed Database" data-ar="قاعدة بيانات PubMed">PubMed Database</a>
+                </div>
+            </div>
+
+            <div class="reference-item" id="ref4">
+                <p><strong data-en="Reference 4: Antioxidant & Anti-inflammatory Powers" data-ar="المرجع 4: قوة مضادات الأكسدة والمضادة للالتهابات">Reference 4: Antioxidant & Anti-inflammatory Powers</strong></p>
+                <p class="citation">Katz, D. L., Davidhi, A., Ma, Y., et al. (2018). "Health Benefits of Tree Nut Consumption and Their Bioactive Compounds." Nutrients, 10(12), 1817.</p>
+                <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;" data-en="Research showing polyphenols and phytochemicals in nuts neutralize free radicals and reduce oxidative stress in the body." data-ar="أبحاث توضح أن البوليفينول والمواد الكيميائية النباتية في المكسرات تحيّد الجذور الحرة وتقلل الإجهاد التأكسدي.">Research on polyphenols and phytochemicals that neutralize free radicals and reduce oxidative stress.</p>
+                <div class="links">
+                    <a href="https://www.mdpi.com/journal/nutrients" class="ref-link" target="_blank" data-en="Nutrients Journal" data-ar="مجلة المغذيات">Nutrients Journal</a>
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8198490/" class="ref-link" target="_blank" data-en="PubMed Central" data-ar="مركز PubMed المركزي">PubMed Central</a>
+                </div>
+            </div>
+
+            <div class="reference-item" id="ref5">
+                <p><strong data-en="Reference 5: Blood Sugar & Metabolic Control" data-ar="المرجع 5: السكر في الدم والتحكم الأيضي">Reference 5: Blood Sugar & Metabolic Control</strong></p>
+                <p class="citation">Hernández-Alonso, P., Camacho-Barcia, L., Bulló, M., & Salas-Salvadó, J. (2017). "Nuts and Dried Fruits: An Update of Their Beneficial Effects on Type 2 Diabetes." Nutrients, 9(7), 673.</p>
+                <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;" data-en="Study on pistachios reducing fasting blood sugar by 9%, improving insulin sensitivity in diabetic patients." data-ar="دراسة على الفستق تُظهر خفض السكر الصائم بنسبة 9% وتحسين حساسية الإنسولين لدى مرضى السكري.">Pistachio studies showing 9% reduction in fasting blood sugar and improved insulin sensitivity.</p>
+                <div class="links">
+                    <a href="https://www.mdpi.com/journal/nutrients" class="ref-link" target="_blank" data-en="Nutrients Journal" data-ar="مجلة المغذيات">Nutrients Journal</a>
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5748761/" class="ref-link" target="_blank" data-en="PubMed Central" data-ar="مركز PubMed المركزي">PubMed Central</a>
+                </div>
+            </div>
+
+            <div class="reference-item" id="ref6">
+                <p><strong data-en="Reference 6: Overall Mortality & Disease Prevention" data-ar="المرجع 6: معدل الوفيات والوقاية من الأمراض">Reference 6: Overall Mortality & Disease Prevention</strong></p>
+                <p class="citation">Aune, D., Norat, T., Romundstad, P., & Vatten, L. J. (2016). "Consumption of Nuts and Seeds and Health Outcomes: An Umbrella Review." BMC Medicine, 14(1), 207.</p>
+                <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;" data-en="Umbrella review of 20+ studies with 800,000+ participants: Daily 28g nut intake reduces all-cause mortality by 22% and cancer mortality by 11%." data-ar="مراجعة شاملة لـ 20+ دراسة مع 800,000+ مشارك: تناول 28غ يومياً من المكسرات يقلل معدل الوفيات من جميع الأسباب بنسبة 22% والوفيات من السرطان بنسبة 11%.">Umbrella review: 28g daily nuts reduce all-cause mortality by 22% and cancer mortality by 11%.</p>
+                <div class="links">
+                    <a href="https://bmcmedicine.biomedcentral.com/" class="ref-link" target="_blank" data-en="BMC Medicine" data-ar="طب BMC">BMC Medicine</a>
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9776667/" class="ref-link" target="_blank" data-en="PubMed Central" data-ar="مركز PubMed المركزي">PubMed Central</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong data-en="Built by Victory Hour Multimedia Inc." data-ar="تم البناء بواسطة Victory Hour Multimedia Inc.">Built by Victory Hour Multimedia Inc.</strong> 🌐 <a href="https://www.victoryhourmedia.com" target="_blank">www.victoryhourmedia.com</a> | ✉️ <a href="mailto:info@victoryhourmedia.com">info@victoryhourmedia.com</a></p>
+        <p><em data-en="We build brands that lead. From strategy to design to digital presence—your growth is our mission." data-ar="نحن نبني العلامات التجارية التي تقود. من الاستراتيجية والتصميم إلى الحضور الرقمي - نموك هو مهمتنا.">We build brands that lead. From strategy to design to digital presence—your growth is our mission.</em></p>
+    </footer>
+
+    <script>
+        let currentLanguage = 'en';
+
+        function scrollToRef(refId) {
+            const element = document.getElementById(refId);
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            element.style.backgroundColor = '#fff8f0';
+            setTimeout(() => {
+                element.style.backgroundColor = 'transparent';
+            }, 2000);
+        }
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'ar' : 'en';
+            updatePageLanguage();
+            localStorage.setItem('preferredLanguage', currentLanguage);
+        }
+
+        function updatePageLanguage() {
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLanguage}`);
+            });
+
+            const body = document.body;
+            if (currentLanguage === 'ar') {
+                body.classList.add('rtl');
+            } else {
+                body.classList.remove('rtl');
+            }
+
+            const toggle = document.getElementById('langToggle');
+            toggle.textContent = currentLanguage === 'en' ? 'English / العربية' : 'العربية / English';
+        }
+
+        document.getElementById('langToggle').addEventListener('click', toggleLanguage);
+
+        // Load saved language preference
+        const savedLanguage = localStorage.getItem('preferredLanguage');
+        if (savedLanguage && savedLanguage !== 'en') {
+            currentLanguage = savedLanguage;
+            updatePageLanguage();
+        }
+    </script>
+</body>
+</html>
